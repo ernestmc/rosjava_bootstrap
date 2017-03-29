@@ -64,7 +64,7 @@ public class ChannelBufferField extends Field {
     }
     // By specifying the start index and length we avoid modifying value's
     // indices and marks.
-    buffer.writeBytes(value, 0, value.readableBytes());
+    buffer.writeBytes(value, 0, Math.max(value.readableBytes(), size));
   }
 
   @Override
