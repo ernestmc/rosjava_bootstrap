@@ -40,6 +40,9 @@ public class ChannelBufferField extends Field {
     super(type, name, false);
     this.size = size;
     value = MessageBuffers.dynamicBuffer();
+    if (size > 0) {
+      value.writeZero(size);
+    }
   }
 
   @SuppressWarnings("unchecked")
